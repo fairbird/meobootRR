@@ -1,0 +1,422 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-11-08 10:53+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugin.py:32
+msgid ""
+"Meoboot: Upgrading in progress\n"
+"Please wait..." 
+msgstr ""
+
+#: plugin.py:46 plugin.py:142
+msgid "Sorry, Meoboot can be installed or upgraded only when booted from Flash"
+msgstr ""
+
+#: plugin.py:66
+msgid ""
+"MeoBoot successfully updated. You can restart the plugin now.\n"
+"Have fun !!"
+msgstr ""
+
+#: plugin.py:92 plugin.py:223
+msgid "Available devices:"
+msgstr ""
+
+#: plugin.py:94 plugin.py:521
+msgid "Install"
+msgstr ""
+
+#: plugin.py:95
+msgid "Devices.."
+msgstr ""
+
+#: plugin.py:126
+msgid ""
+"Welcome to MeoBoot installation.\n"
+"Please select a device in the below list and click the red button to install "
+"MeoBoot on your preferred device."
+msgstr ""
+
+#: plugin.py:128
+msgid ""
+"Welcome to MeoBoot installation.\n"
+"Sorry it seems that there are not Linux formatted devices mounted on your Vu"
+"+. To install MeoBoot you need a Linux formatted part1 device. Click on the "
+"green button to format your device."
+msgstr ""
+
+#: plugin.py:136
+msgid "Sorry, Meoboot can be installed only on Vuplus machines."
+msgstr ""
+
+#: plugin.py:153
+msgid ""
+"Are you sure you want to install MeoBoot in:\n"
+" "
+msgstr ""
+
+#: plugin.py:155
+msgid "Install Confirmation"
+msgstr ""
+
+#: plugin.py:200
+msgid ""
+"MeoBoot successfully installed. You can restart the plugin now.\n"
+"Have fun !!"
+msgstr ""
+
+#: plugin.py:204
+msgid ""
+"Please, use Black Hole Extra Settings Device Panel to format and map your "
+"devices."
+msgstr ""
+
+#: plugin.py:222
+msgid ""
+"Please select a device to format. Be sure to have only one Usb plugged in "
+"your Vu+. Warning: all the data on your device will be lost."
+msgstr ""
+
+#: plugin.py:225
+msgid "Format"
+msgstr ""
+
+#: plugin.py:274
+msgid "Are you sure you want to format: "
+msgstr ""
+
+#: plugin.py:274
+msgid ""
+"?\n"
+"Warning all the data will be lost."
+msgstr ""
+
+#: plugin.py:276
+msgid "Format Confirmation"
+msgstr ""
+
+#: plugin.py:318
+msgid "Formatting..."
+msgstr ""
+
+#: plugin.py:351
+msgid "Available Images"
+msgstr ""
+
+#: plugin.py:352
+msgid "Install Image"
+msgstr ""
+
+#: plugin.py:353
+msgid "Boot Image"
+msgstr ""
+
+#: plugin.py:354
+msgid "Delete Image"
+msgstr ""
+
+#: plugin.py:355
+msgid "Tools"
+msgstr ""
+
+#: plugin.py:377
+msgid "Current Running Image: "
+msgstr ""
+
+#: plugin.py:388
+msgid "MeoBoot Installed on: "
+msgstr ""
+
+#: plugin.py:427
+msgid "Total: "
+msgstr ""
+
+#: plugin.py:427
+msgid " MB   Used: "
+msgstr ""
+
+#: plugin.py:427
+msgid "   Available: "
+msgstr ""
+
+#: plugin.py:448
+msgid "Sorry you cannot delete Flash image"
+msgstr ""
+
+#: plugin.py:450
+msgid "Sorry you cannot delete the image currently booted from."
+msgstr ""
+
+#: plugin.py:453
+msgid ""
+"Are you sure you want to delete Image:\n"
+" "
+msgstr ""
+
+#: plugin.py:455 plugin.py:895
+msgid "Delete Confirmation"
+msgstr ""
+
+#: plugin.py:465
+msgid "Meoboot: Deleting Image"
+msgstr ""
+
+#: plugin.py:473
+msgid ""
+"Are you sure you want to Boot Image:\n"
+" "
+msgstr ""
+
+#: plugin.py:475
+msgid "Reboot Confirmation"
+msgstr ""
+
+#: plugin.py:496
+msgid "Sorry you can install a max of 8 images."
+msgstr ""
+
+#: plugin.py:499
+msgid ""
+"Sorry there is not enought available space on your device. You need at least "
+"80 Mb free to install a new image"
+msgstr ""
+
+#: plugin.py:502
+msgid ""
+"Sorry. Wrong image in Flash. You need to install in flash one original Black "
+"Hole image."
+msgstr ""
+
+#: plugin.py:546
+msgid "Source Image file"
+msgstr ""
+
+#: plugin.py:548
+msgid "Image Name"
+msgstr ""
+
+#: plugin.py:550
+msgid "Copy Settings to the new Image"
+msgstr ""
+
+#: plugin.py:568
+msgid "Sorry, an Image with the name "
+msgstr ""
+
+#: plugin.py:568
+msgid ""
+" is already installed.\n"
+" Please try another name."
+msgstr ""
+
+#: plugin.py:571
+msgid ""
+"You have to select one Image to install.\n"
+"Please, upload your nfi file in the folder: /media/meoboot/MbootUpload and "
+"select the image to install."
+msgstr ""
+
+#: plugin.py:573
+msgid "You have to provide a name for the new Image."
+msgstr ""
+
+#: plugin.py:575
+msgid "Sorry this name is reserved. Choose another name for the new Image."
+msgstr ""
+
+#: plugin.py:578
+msgid "Sorry the name of the new Image is too long."
+msgstr ""
+
+#: plugin.py:584
+msgid "Meoboot will stop all your Vu+ activity now to install the new image."
+msgstr ""
+
+#: plugin.py:585
+msgid "Your Vu+ will freeze during the installation process."
+msgstr ""
+
+#: plugin.py:586
+msgid "Please: DO NOT reboot your Vu+ and turn off the power.\n"
+msgstr ""
+
+#: plugin.py:587
+msgid "The new image will be installed and auto booted in few minutes."
+msgstr ""
+
+#: plugin.py:591
+msgid "Meoboot: Install new image"
+msgstr ""
+
+#: plugin.py:620
+msgid ""
+"Requirements:\n"
+"MeoBoot require a Vu+ Duo machine and Hdd or Usb pen drive.\n"
+"\n"
+msgstr ""
+
+#: plugin.py:621
+msgid ""
+"Instructions:\n"
+"MeoBoot installation and upgrade is easy and intuitive.\n"
+"To install a new image in multiboot you have only to upload your *.nfi file "
+"in the folder \"/media/meoboot/MbootUpload\" and click on the <Install "
+"Image> button>\n"
+"\n"
+msgstr ""
+
+#: plugin.py:622
+msgid ""
+"Uninstall Meoboot:\n"
+"To completely remove meoboot form your flash image you have to delete the "
+"folders:\n"
+"/media/meoboot/MbootM\n"
+"/media/meoboot/MbootUpload\n"
+"/media/meoboot\n"
+"/usr/lib/enigma2/python/Plugins/Extensions/MeoBoot\n"
+"\n"
+msgstr ""
+
+#: plugin.py:623
+msgid "Have fun !!"
+msgstr ""
+
+#: plugin.py:663
+msgid "Backup Image"
+msgstr ""
+
+#: plugin.py:668
+msgid "Manage Backups"
+msgstr ""
+
+#: plugin.py:673
+msgid "Help"
+msgstr ""
+
+#: plugin.py:710
+msgid "Select Image to Backup"
+msgstr ""
+
+#: plugin.py:711
+msgid "Backup"
+msgstr ""
+
+#: plugin.py:761 plugin.py:877
+msgid "Backup path: "
+msgstr ""
+
+#: plugin.py:764
+msgid "Available space: "
+msgstr ""
+
+#: plugin.py:782
+msgid ""
+"Sorry this tool is to backup multiboot images only.\n"
+"You have to use Software Manager to backup Image in Flash"
+msgstr ""
+
+#: plugin.py:784
+msgid ""
+"Sorry there is not enought available space on your device. You need at least "
+"150 Mb free to backup images."
+msgstr ""
+
+#: plugin.py:787
+msgid ""
+"Are you sure you want to backup Image:\n"
+" "
+msgstr ""
+
+#: plugin.py:789
+msgid "Backup Confirmation"
+msgstr ""
+
+#: plugin.py:796
+msgid "Wait please, Meoboot is working: ....Backup in progress...."
+msgstr ""
+
+#: plugin.py:799
+msgid "Meoboot: Backup COMPLETE !"
+msgstr ""
+
+#: plugin.py:800
+msgid "Meoboot: Backup Image"
+msgstr ""
+
+#: plugin.py:825
+msgid "Select a Backup File"
+msgstr ""
+
+#: plugin.py:826
+msgid "Restore"
+msgstr ""
+
+#: plugin.py:827
+msgid "Delete"
+msgstr ""
+
+#: plugin.py:880
+msgid "Available space on meoboot device: "
+msgstr ""
+
+#: plugin.py:893
+msgid ""
+"Are you sure you want to delete Backup:\n"
+" "
+msgstr ""
+
+#: plugin.py:900
+msgid "Meoboot deleting Backup file....."
+msgstr ""
+
+#: plugin.py:902
+msgid "Meoboot: Deleting Backup file"
+msgstr ""
+
+#: plugin.py:918
+msgid ""
+"Sorry there is not enought available space on your device. You need at least "
+"150 Mb free to restore images."
+msgstr ""
+
+#: plugin.py:920
+msgid ""
+"Sorry you cannot overwrite the image currently booted from. Please, boot "
+"from Flash to restore this backup."
+msgstr ""
+
+#: plugin.py:923
+msgid ""
+"Are you sure you want to Restore Image:\n"
+" "
+msgstr ""
+
+#: plugin.py:925
+msgid "Restore Confirmation"
+msgstr ""
+
+#: plugin.py:932
+msgid "Wait please, Meoboot is working: ....Restore in progress...."
+msgstr ""
+
+#: plugin.py:937
+msgid "Meoboot: Restore COMPLETE !"
+msgstr ""
+
+#: plugin.py:938
+msgid "Meoboot: Restore Image"
+msgstr ""

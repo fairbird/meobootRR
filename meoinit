@@ -1,0 +1,127 @@
+#!/bin/sh
+
+LIBDIR=/lib/modules/`uname -r`
+if [ ! -d $LIBDIR ]; then
+   LIBDIR=/lib/modules/`ls /lib/modules | tail -n 1`
+fi
+if [ `mount | grep /proc | wc -l` -lt 1 ]; then
+   /bin/mount -t proc proc /proc > /dev/null 2>&1
+   /bin/mount -t sysfs sysfs /sys > /dev/null 2>&1
+   /sbin/depmod -Ae > /dev/null 2>&1
+fi
+
+if [ `uname -r | grep 2.6.12 | wc -l` -lt 1 ]; then
+	  echo "openMBoot is starting mdev"
+	  echo "/sbin/mdev" >/proc/sys/kernel/hotplug
+	  /etc/init.d/mdev > /dev/null 2>&1
+fi
+
+sleep 5
+if [ ! -e /media/meoboot  ]; then
+	  mkdir /media/meoboot
+fi 
+      
+if [ `uname -r | grep 2.6.12 | wc -l` -lt 1 ]; then
+   DEVICES1=`find /dev/sd??`
+   for DEVICE in $DEVICES1;
+   do
+      if [ -e /media/meoboot  ]; then
+	      echo "meoboot checking installation on: " $DEVICE
+	      mount $DEVICE /media/meoboot > /dev/null 2>&1 
+      fi
+      if [ ! -e /media/meoboot/MbootM  ]; then
+	      echo "meoboot hasn't been installed on: " $DEVICE
+	      umount /media/meoboot > /dev/null 2>&1 
+      else
+	      echo "meoboot has been installed on: " $DEVICE
+	      break;
+      fi 
+   done
+fi
+
+MODPROBE=/sbin/modprobe
+
+echo "meoboot is loading modules"
+for mod in dvb; do
+      $MODPROBE $mod
+done
+# Hack for loading modules which are not loaded on diffrent kernel images
+/etc/init.d/modutils.sh
+
+#we must wait until udev has created the video device
+(
+if [ -d /proc/stb ]; then
+        while true; do
+                if [ -e /dev/dvb/adapter0/video0 ]; then
+                        break;
+                fi;
+        done;
+fi;
+[ -e /etc/dropbear/dropbear_rsa_host_key ] && /usr/bin/showiframe /usr/share/bootlogo.mvi || /usr/bin/showiframe /usr/share/bootlogo_wait.mvi;
+) &
+
+if [ -f $LIBDIR/kernel/fs/autofs4/autofs4.ko ]; then
+	/sbin/insmod $LIBDIR/kernel/fs/autofs4/autofs4.ko > /dev/null 2>&1
+fi
+
+
+if [ -e /tmp/ninfo.tmp ]; then
+	  break;
+else
+	/usr/bin/showiframe /usr/lib/enigma2/python/Plugins/Extensions/MeoBoot/meoboot.mvi > /dev/null 2>&1
+	chmod 755 /usr/lib/enigma2/python/Plugins/Extensions/MeoBoot/contrib/meoinit
+	/usr/lib/enigma2/python/Plugins/Extensions/MeoBoot/contrib/meobm > /dev/null 2>&1
+fi
+
+
+TARGET=Flash
+if [ -f /media/meoboot/MbootM/.meoboot ]; then
+	TARGET=`cat /media/meoboot/MbootM/.meoboot`
+fi
+
+if [ $TARGET = "Flash" ]; then
+	echo "meoboot is booting image from " $TARGET
+	umount /media/meoboot > /dev/null 2>&1
+	/usr/bin/showiframe /usr/share/bootlogo.mvi > /dev/null 2>&1
+else
+    if [ -f /tmp/.egamireboot ]; then
+	  break;
+    else
+	  echo "meoboot is booting" $TARGET " from " $DEVICE
+	  if [ -d /media/meoboot/MbootM/$TARGET ]; then
+		  if [ -f /media/meoboot/MbootM/$TARGET/etc/init.d/udev ]; then
+				sed -ie s!"\$4"!"\$3"!g /media/meoboot/MbootM/$TARGET/etc/init.d/udev
+		  fi
+		  if [ -f /media/meoboot/MbootM/$TARGET/usr/share/bootlogo.mvi ]; then
+				/usr/bin/showiframe /media/meoboot/MbootM/$TARGET/usr/share/bootlogo.mvi
+		  else
+				/usr/bin/showiframe /media/meoboot/MbootM/$TARGET/boot/bootlogo.mvi
+		  fi
+		  
+		  sleep 1
+
+		  /bin/mount -o bind /dev /media/meoboot/MbootM/$TARGET/dev
+		  /bin/mount -o bind /proc /media/meoboot/MbootM/$TARGET/proc
+		  /bin/mount -o bind /sys /media/meoboot/MbootM/$TARGET/sys
+		  rm /media/meoboot/MbootM/$TARGET/media/meoboot > /dev/null 2>&1
+		  mkdir /media/meoboot/MbootM/$TARGET/media/meoboot > /dev/null 2>&1
+		  
+		  if [ `uname -r | grep 2.6.12 | wc -l` -lt 1 ]; then
+			  /bin/mount /dev/sda1 /media/meoboot/MbootM/$TARGET/media/hdd
+		  fi
+		  if [ -f /media/meoboot/MbootM/$TARGET/sbin/init.sysvinit ]; then
+		      exec /usr/sbin/chroot /media/meoboot/MbootM/$TARGET /sbin/init.sysvinit $1
+		  fi
+		  exit 0
+		fi
+    fi
+fi
+	
+# boot Flash 
+
+if [ -f /sbin/init.sysvinit ]; then
+		echo "Running /sbin/init.sysvinit"
+		exec /sbin/init.sysvinit $1
+fi
+
+exit 0
